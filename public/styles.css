@@ -1,0 +1,51 @@
+
+.videoItem {
+    width: 60%;
+    height:auto;
+    margin-left: 10%;
+    margin-top: 15%; 
+    position:  absolute;
+    background-color: black;
+    padding: 7%;
+
+}
+
+.videoItem video {
+    width: 100%;
+}
+
+.tvContainer {
+    object-fit: cover;
+    width: 60vw;
+    height: 80vh;
+    position: relative;
+    left: 50%;
+    top: 30%;
+    margin-left: -30vw;
+    max-width: 900px;
+    max-height: 900px;
+}
+
+.videoContainer {
+    width: 70%;
+    position: absolute;
+    margin-top: -73%;
+    margin-left: 11%;
+}
+
+
+.tvImage{
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    pointer-events: none;
+}
+
+.backgroundPanel {
+    background-color: #000000;
+    width: 80%;
+    height: 50%;
+    margin-left: 8%;
+    margin-top: 10%; 
+    position:  absolute;
+}

