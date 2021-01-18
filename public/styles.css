@@ -12,6 +12,7 @@
 
 .videoItem video {
     width: 100%;
+    border: none;
 }
 
 .tvContainer {
