@@ -1,4 +1,21 @@
 
+@media screen and (max-width: 800px) {
+    .tvContainer {
+        width: 95vw;
+        left: 32%;
+        margin-top: 20vh;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .tvContainer {
+        width: 60vw;
+        left: 50%;
+        margin-top: 8vh;
+    }
+}
+
+
 .videoItem {
     width: 60%;
     height:auto;
@@ -17,11 +34,9 @@
 
 .tvContainer {
     object-fit: cover;
-    width: 60vw;
     height: 80vh;
     position: relative;
-    left: 50%;
-    top: 30%;
+
     margin-left: -30vw;
     max-width: 900px;
     max-height: 900px;
@@ -40,6 +55,19 @@
     z-index: 10;
     position: absolute;
     pointer-events: none;
+}
+
+.tvButton {
+    width: 9%;
+    left: 86.5%;
+    z-index: 10;
+    margin-top: 17%;
+    position: absolute; 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #ffffff;
+    border: 0.2em solid #9ecaed;
+    border-radius: 50%;
 }
 
 .backgroundPanel {

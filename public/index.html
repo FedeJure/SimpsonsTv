@@ -28,26 +28,88 @@
         <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
         
         <div class="tvContainer">
-            <!-- <div class="backgroundPanel"></div> -->
-            <div class="videoItem">
-                    <video id="videoElement" loop autoplay  controls poster="baner.jpg"></video>
-            </div>
+            <div class="videoItem" id="videoContainer"></div>
             
             <img src="tv.png" alt="" class="tvImage">
+            <img id="channelButton" src="tvButton.png" alt="" class="tvButton">
         </div>
         
             
         </img>
         <script>
+            const button = document.getElementById("channelButton");
+            var currentRotation = 0;    
+            button.style.transform = `rotate(${currentRotation}deg)`  
+            const videoNames = ["channel01","channel03","channel02","channel04"]
+            const videoContainer = document.getElementById("videoContainer");
+            const videos = []
+            var selectedChannel = 0;
+            function getVideoElement() {
+                var video = document.createElement("video");
+                video.setAttribute("loop", true)
+                video.setAttribute("autoplay", true)
+                video.setAttribute("controls", true)
+                video.setAttribute("poster", "baner.jpg");
+                video.setAttribute("preload", "metadata")
+                video.style.display = "none";
+                return video;
+            }
+
+            function loadVideo(videoObject) {
+                videoObject.flvPlayer.load();
+                videoObject.video.style.display = "block";
+                console.log([videoObject.video])
+                try {
+                    videoObject.video.play(); 
+                } catch (error) {} 
+            }
+
+            function unloadVideo(videoObject) {
+                videoObject.flvPlayer.unload();
+                videoObject.video.style.display = "none";  
+            }
+
+            function switchChannel() {
+                currentRotation += 360 / videoNames.length;
+                button.style.transform = `rotate(${currentRotation}deg)`
+                unloadVideo(videos[selectedChannel])
+
+                if (selectedChannel +1 >= videos.length) selectedChannel = 0;
+                else selectedChannel ++;
+
+                loadVideo(videos[selectedChannel])
+            }
+
             if (flvjs.isSupported()) {
-                var videoElement = document.getElementById('videoElement');
-                var flvPlayer = flvjs.createPlayer({
-                    type: 'flv',
-                    url: 'ws://backend.seta.fun:8000/stream/stream.flv',
-                    isLive: true
+                videoNames.forEach((name, i) => {
+                    var video = getVideoElement();
+                    var source = `ws://localhost:8000/stream/${name}.flv`;
+                    videoContainer.appendChild(video);
+                    var flvPlayer = flvjs.createPlayer({
+                        type: 'flv',
+                        url: source,
+                        isLive: true
+                    });
+                    flvPlayer.attachMediaElement(video);
+                    videos[i] = {video, flvPlayer};
+
+                    video.addEventListener('ended', () => {
+                        console.log(video, source, videos[i])
+                        video.src = source;
+                        if (selectedChannel == i) loadVideo(videos[i])
+                    }, false);
+
+                    video.addEventListener('error', () => {
+                        video.src = source;
+                        if (selectedChannel == i) loadVideo(videos[i])
+                    }, true);
                 });
-                flvPlayer.attachMediaElement(videoElement);
-                flvPlayer.load();
+                loadVideo(videos[0])
+
+                button.onclick = () => {
+                    switchChannel()
+                }
+                console.log([button])
             }
         </script>
 </body>
