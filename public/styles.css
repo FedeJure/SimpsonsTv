@@ -19,7 +19,7 @@
 .videoItem {
     width: 60%;
     height:auto;
-    margin-left: 10%;
+    margin-left: 9%;
     margin-top: 15%; 
     position:  absolute;
     background-color: black;
@@ -68,6 +68,21 @@
     box-shadow: 0 0 10px #ffffff;
     border: 0.2em solid #9ecaed;
     border-radius: 50%;
+    filter: brightness(200%);
+}
+
+.tvButtonText {
+    overflow: visible;
+    text-align: center;
+    text-justify: auto;
+    width: 9%;
+    left: 86.5%;
+    z-index: 10;
+    margin-top: 13%;
+    position: absolute; 
+    outline: none;
+    font-weight: bold;
+    font-size: 1em;
 }
 
 .backgroundPanel {
@@ -77,4 +92,18 @@
     margin-left: 8%;
     margin-top: 10%; 
     position:  absolute;
+}
+
+body {
+    font-family: 'Poppins';font-size: 1em;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
 }
